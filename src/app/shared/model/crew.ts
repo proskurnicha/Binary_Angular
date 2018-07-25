@@ -1,5 +1,7 @@
-export class Crew {
+import { Stewardesses } from "./stewardesses";
+
+export interface Crew {
     id: number;
     pilotId: number;
-    //stewardesses: 
+    stewardesses: Array<Stewardesses>;
 }

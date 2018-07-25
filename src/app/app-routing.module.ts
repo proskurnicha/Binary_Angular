@@ -7,6 +7,10 @@ const routes: Routes = [
   //   pathMatch:'full',
   //   redirectTo: 'http://localhost:54956/api/Flights',
   // }
+  //  { 
+  //   path: 'detail/:id', 
+  //   component: HeroDetailComponent
+  //  },
 ];
 
 @NgModule({
