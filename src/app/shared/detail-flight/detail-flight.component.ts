@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Flight } from '../model/flight';
 import { FlightService } from '../../services/flight.service';
 import { ActivatedRoute } from '@angular/router';
-import { FlightService } from '../../services/flight.service';
+import {NgForm} from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';  
 
 @Component({
   selector: 'app-detail-flight',
@@ -24,7 +26,6 @@ export class DetailFlightComponent implements OnInit {
     this.flightService.getFlightsById(id)
       .subscribe(
         (d)=> {
-          console.log('d', d);
           this.flight = d;
         },
         err => {
@@ -33,4 +34,33 @@ export class DetailFlightComponent implements OnInit {
       );
   }
 
+  createFlight() {
+    const data = {
+        // todo set data
+    };
+    this.flightService.createFlight(data)
+    .subscribe(
+      (d)=> {
+        console.log('d', d);
+      },
+      err => {
+        console.log('err', err);
+      }
+    )
+  }
+
+  updateFlight(f: NgForm) {
+    debugger
+    this.flight = f.value;
+    this.flightService.updateFlight(this.flight)
+    .subscribe(
+      (d)=> {
+        debugger
+        console.log('d', d);
+      },
+      err => {
+        console.log('err', err);
+      }
+    );
+  }
 }

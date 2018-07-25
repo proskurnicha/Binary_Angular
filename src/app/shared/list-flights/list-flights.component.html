@@ -17,4 +17,6 @@
             <li>{{ticket.flightId}}</li>     
         </ul>        
     </li>
+    <li><button routerLink="/flights/{{flight.id}}">Update</button></li>
+    <li><button (click)="deleteFlight(flight.id)">Delete</button></li>
 </ul>

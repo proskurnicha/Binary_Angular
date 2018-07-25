@@ -54,6 +54,7 @@ export class ListFlightsComponent implements OnInit {
   }
 
   updateFlight(flight: Flight) {
+    debugger
     this.flightService.updateFlight(flight)
     .subscribe(
       (d)=> {
@@ -65,7 +66,7 @@ export class ListFlightsComponent implements OnInit {
     );
   }
 
-  deleteFlight(id) {
+  deleteFlight(id: number) {
     this.flightService.deleteFlight(id)
     .subscribe(
       (d)=> {
