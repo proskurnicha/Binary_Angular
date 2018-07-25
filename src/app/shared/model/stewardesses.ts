@@ -1,4 +1,4 @@
-export class Stewardesses {
+export interface Stewardesses {
     id: number;
     crewId: number;
     dateBirth: Date;

@@ -1,4 +1,4 @@
-export class Pilot {
+export interface Pilot {
     id: number;
     crewId: number;
     dateBirth: Date;

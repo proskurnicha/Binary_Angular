@@ -1,18 +1,2 @@
-<button (click) = "onClick()">Get flight</button>
-<button (click) = "getFlights()">Get flight</button>
-
-<div>
-  <p>Имя пользователя: {{flight?.id}}</p>
-  <p>Возраст пользователя: {{flight?.arrivalPoint}}</p>
-</div>
-<ul  *ngFor="let flight of flights">
-    <li routerLink="/flights/{{flight.id}}">{{flight.id}}</li>
-    <li>{{flight.departurePoint}}</li>
-    <li>{{flight.arrivalPoint}}</li>
-    <li>{{flight.departureTime}}</li>
-    <li>{{flight.arrivalTime}}</li>
-
-</ul>
-
 
 <router-outlet></router-outlet>

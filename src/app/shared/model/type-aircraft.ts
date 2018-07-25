@@ -1,4 +1,4 @@
-export class TypeAircraft {
+export interface TypeAircraft {
     id: number;
     aircraftModel: number;
     numberPlaces: number;

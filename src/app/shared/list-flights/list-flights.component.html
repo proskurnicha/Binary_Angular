@@ -1,3 +1,20 @@
-<p>
-  list-flights works!
-</p>
+<button (click) = "getFlights()">Get flight</button>
+
+<div>
+  <p>Имя пользователя: {{flight?.id}}</p>
+  <p>Возраст пользователя: {{flight?.arrivalPoint}}</p>
+</div>
+<ul  *ngFor="let flight of flights">
+    <li routerLink="/flights/{{flight.id}}">{{flight.id}}</li>
+    <li>{{flight.departurePoint}}</li>
+    <li>{{flight.arrivalPoint}}</li>
+    <li>{{flight.departureTime}}</li>
+    <li>{{flight.arrivalTime}}</li>
+    <li>
+        <ul  *ngFor="let ticket of flight.tickets">
+            <li routerLink="/flights/{{ticket.id}}">{{flight.id}}</li>
+            <li>{{ticket.price}}</li>
+            <li>{{ticket.flightId}}</li>     
+        </ul>        
+    </li>
+</ul>

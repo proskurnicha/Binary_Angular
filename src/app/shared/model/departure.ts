@@ -1,4 +1,4 @@
-export class Departure {
+export interface Departure {
     id: number;
     flightId: number;
     departureTime: Date;
