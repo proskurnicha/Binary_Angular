@@ -12,7 +12,7 @@ export class TypeAircraftService {
 
   constructor(private http: HttpClient) { }
 
-  getTypeAircrafts(): Observable<TypeAircraft> {
+  getTypeAircraft(): Observable<TypeAircraft> {
     return this.http.get(`${this.api}`);
   }
 

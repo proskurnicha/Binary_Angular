@@ -1,3 +1,11 @@
-<p>
-  list-typesaircrafts works!
-</p>
+<div>
+    <button routerLink="/typesaircraft/0">Create</button>
+    <ul  *ngFor="let TypeAircraft of TypesAircraft | sortFlightsByDeparturePoints:'departurePoint':'asc'">
+        <li>{{TypeAircraft.aircraftModel}}</li>
+        <li>{{TypeAircraft.carryingCapacity}}</li>
+        <li>{{TypeAircraft.numberPlaces}}</li>
+        <li><button (click)="delete(TypeAircraft.id)"  routerLink="/TypesAircraft">Delete</button></li>
+    </ul>
+</div>
+
+        <!-- <li routerLink="/flights/{{flight.id}}">{{flight.id}}</li> -->

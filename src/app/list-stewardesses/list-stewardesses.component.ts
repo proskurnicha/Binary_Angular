@@ -1,15 +1,54 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient} from '@angular/common/http';
+import { Stewardesses } from './../model/Stewardesses';
+import { StewardessService } from './../services/Stewardess.service';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-list-stewardesses',
   templateUrl: './list-stewardesses.component.html',
   styleUrls: ['./list-stewardesses.component.scss']
 })
+
 export class ListStewardessesComponent implements OnInit {
 
-  constructor() { }
+  Stewardess: Stewardesses;
+
+  Stewardesses: Array<Stewardesses>;
+
+  constructor(private http: HttpClient,
+    private StewardessService: StewardessService) { 
+      this.getStewardesses();
+    }
 
   ngOnInit() {
+
+  }
+
+  
+  getStewardesses() {
+    this.StewardessService.getStewardesses()
+      .subscribe(
+        (d)=> {
+          console.log('d', d);
+          this.Stewardesses = d;
+        },
+        err => {
+          console.log('err', err);
+        }
+      )
+  }
+
+  deletePilot(id: number) {
+    this.StewardessService.deleteStewardess(id)
+    .subscribe(
+      (d)=> {
+        console.log('d', d);
+      },
+      err => {
+        console.log('err', err);
+      }
+    );
   }
 
 }

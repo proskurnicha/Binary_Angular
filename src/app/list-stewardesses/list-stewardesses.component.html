@@ -1,3 +1,10 @@
-<p>
-  list-stewardesses works!
-</p>
+<div>
+    <button routerLink="/Stewardesses/0">Create</button>
+    <ul  *ngFor="let Stewardess of Stewardesses | sortFlightsByDeparturePoints:'departurePoint':'asc'">
+        <!-- <li routerLink="/flights/{{flight.id}}">{{flight.id}}</li> -->
+        <li>{{Stewardess.name}}</li>
+        <li>{{Stewardess.surname}}</li>
+        <li>{{Stewardess.dateBirth}}</li>
+        <li><button (click)="delete(Stewardess.id)"  routerLink="/Stewardesses">Delete</button></li>
+    </ul>
+</div>
