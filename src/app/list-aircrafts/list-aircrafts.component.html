@@ -1,0 +1,10 @@
+<div>
+        <button routerLink="/aircrafts/0">Create</button>
+        <ul  *ngFor="let Aircraft of Aircrafts | sortFlightsByDeparturePoints:'departurePoint':'asc'">
+            <!-- <li routerLink="/flights/{{flight.id}}">{{flight.id}}</li> -->
+            <li>{{Aircraft.aircraftName}}</li>
+            <li>{{Aircraft.dateRelease}}</li>
+            <li>{{Aircraft.lifetime}}</li>
+            <li><button (click)="delete(Aircraft.id)"  routerLink="/aircrafts">Delete</button></li>
+        </ul>
+    </div>

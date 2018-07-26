@@ -1,34 +1,34 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '../../../node_modules/@angular/common/http';
 import { Observable } from '../../../node_modules/rxjs';
-import { Flight } from './../model/flight';
+import { Pilot } from './../model/Pilot';
 import { environment } from './../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class FlightService {
+export class PilotService {
 
-  api = environment.api + 'Flights';
+  api = environment.api + 'Pilots';
 
   constructor(private http: HttpClient) { }
 
-  getFlights(): Observable<Flight> {
+  getPilots(): Observable<Pilot> {
     return this.http.get(`${this.api}`);
   }
 
-  getFlightsById(id): Observable<Flight> {
+  getPilotsById(id): Observable<Pilot> {
     return this.http.get(`${this.api}/${id}`);
   }
 
-  createFlight(flight: Flight): Observable<Flight> {
-    return this.http.post(`${this.api}/`, flight);
+  createPilot(Pilot: Pilot): Observable<Pilot> {
+    return this.http.post(`${this.api}/`, Pilot);
   }
 
-  updateFlight(flight: Flight): Observable<Flight> {
-    return this.http.put(`${this.api}/${flight.id}`, flight);
+  updatePilot(Pilot: Pilot): Observable<Pilot> {
+    return this.http.put(`${this.api}/${Pilot.id}`, Pilot);
   }
 
-  deleteFlight(id): Observable<Flight> {
+  deletePilot(id): Observable<Pilot> {
     return this.http.delete(`${this.api}/${id}`);
   }
 }

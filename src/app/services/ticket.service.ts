@@ -1,34 +1,35 @@
+
 import { Injectable } from '@angular/core';
 import { HttpClient } from '../../../node_modules/@angular/common/http';
 import { Observable } from '../../../node_modules/rxjs';
-import { Flight } from './../model/flight';
+import { Ticket } from './../model/Ticket';
 import { environment } from './../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class FlightService {
+export class TicketService {
 
-  api = environment.api + 'Flights';
+  api = environment.api + 'Tickets';
 
   constructor(private http: HttpClient) { }
 
-  getFlights(): Observable<Flight> {
+  getTickets(): Observable<Ticket> {
     return this.http.get(`${this.api}`);
   }
 
-  getFlightsById(id): Observable<Flight> {
+  getTicketsById(id): Observable<Ticket> {
     return this.http.get(`${this.api}/${id}`);
   }
 
-  createFlight(flight: Flight): Observable<Flight> {
-    return this.http.post(`${this.api}/`, flight);
+  createTicket(Ticket: Ticket): Observable<Ticket> {
+    return this.http.post(`${this.api}/`, Ticket);
   }
 
-  updateFlight(flight: Flight): Observable<Flight> {
-    return this.http.put(`${this.api}/${flight.id}`, flight);
+  updateTicket(Ticket: Ticket): Observable<Ticket> {
+    return this.http.put(`${this.api}/${Ticket.id}`, Ticket);
   }
 
-  deleteFlight(id): Observable<Flight> {
+  deleteTicket(id): Observable<Ticket> {
     return this.http.delete(`${this.api}/${id}`);
   }
 }

@@ -1,0 +1,15 @@
+<form [formGroup]="flightForm" (submit)="applyChanges(flightForm.value)" >
+
+        <input placeholder="Enter arrivalPoint " formControlName="arrivalPoint">
+  
+        <input placeholder="Enter departurePoint" formControlName="departurePoint">
+
+        <input placeholder="Enter departureTime" formControlName="departureTime" >
+        <!-- <mat-error *ngIf="errorMessages.email">{{errorMessages.email}}</mat-error>required -->
+  
+        <input placeholder="Enter your arrivalTime" formControlName="arrivalTime">
+        <!-- <mat-error *ngIf="errorMessages.password">{{errorMessages.password}}</mat-error> -->
+  
+      <input type="submit" value="Save changes" [disabled]="flightForm.invalid">
+
+  </form>
