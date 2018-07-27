@@ -1,3 +1,20 @@
-<p>
-  detail-stewardess works!
-</p>
+<form [formGroup]="StewardessForm" (submit)="applyChanges(StewardessForm.value)" >
+    <div class="form-group">
+   
+        <input [hidden] = "true" placeholder="-" formControlName="id">
+    
+        <input  placeholder="Enter name" formControlName="name">
+  
+        <input  placeholder="Enter surname" formControlName="surname">
+
+        <input type="date" placeholder="yyyy-MM-dd" min="0000-00-00"
+         max="2019-01-01" required  
+         formControlName="dateBirth"
+         />
+
+         <input  placeholder="Enter crewId" formControlName="crewId" required>
+  
+  
+      <input type="submit" class="button expanded" value="Save changes" [disabled]="StewardessForm.invalid">
+    </div>
+  </form>

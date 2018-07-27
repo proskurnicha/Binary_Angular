@@ -43,6 +43,7 @@ export class ListPilotsComponent implements OnInit {
     .subscribe(
       (d)=> {
         console.log('d', d);
+        this.getPilots();
       },
       err => {
         console.log('err', err);

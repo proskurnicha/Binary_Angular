@@ -44,6 +44,7 @@ export class ListFlightsComponent implements OnInit {
     .subscribe(
       (d)=> {
         console.log('d', d);
+        this.getFlights();
       },
       err => {
         console.log('err', err);

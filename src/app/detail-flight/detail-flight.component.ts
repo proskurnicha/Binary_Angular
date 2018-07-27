@@ -1,38 +1,43 @@
 import { Component, OnInit } from '@angular/core';
-import { Flight } from './../model/flight';
-import { FlightService } from './../services/flight.service';
+import { Flight } from './../model/Flight';
+import { FlightService } from './../services/Flight.service';
 import { ActivatedRoute } from '@angular/router';
 import {NgForm} from '@angular/forms';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Component({
-  selector: 'app-detail-flight',
-  templateUrl: './detail-flight.component.html',
-  styleUrls: ['./detail-flight.component.scss']
+  selector: 'app-detail-Flight',
+  templateUrl: './detail-Flight.component.html',
+  styleUrls: ['./detail-Flight.component.scss']
 })
 export class DetailFlightComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, 
               private fb: FormBuilder,
-              private flightService: FlightService) { 
+              private FlightService: FlightService) { 
     const id = this.route.snapshot.paramMap.get('id');
-    if(id) {
+    debugger
+    if(id != 0) {
       this.getFlightById();
+    }
+    else {
+      this.createFlightForm();
     }
   }
   
-  flight: Flight;
-  flightForm: FormGroup;
+  Flight: Flight;
+  FlightForm: FormGroup;
 
   ngOnInit() {
   }
 
   getFlightById() {
     const id = this.route.snapshot.paramMap.get('id');
-    this.flightService.getFlightsById(id)
+    this.FlightService.getFlightsById(id)
       .subscribe(
         (d)=> {
-          this.flight = d;
+          this.Flight = d;
           this.createFlightForm();
         },
         err => {
@@ -41,8 +46,9 @@ export class DetailFlightComponent implements OnInit {
       );
   }
 
-  createFlight(flight: Flight) {
-    this.flightService.createFlight(flight)
+  createFlight(Flight: Flight) {
+    debugger
+    this.FlightService.createFlight(Flight)
     .subscribe(
       (d)=> {
         console.log('d', d);
@@ -53,31 +59,41 @@ export class DetailFlightComponent implements OnInit {
     );
   }
 
+  
   createFlightForm(): void {
-    this.flightForm = this.fb.group({
-      departurePoint: [ this.flight.departurePoint || '', []],
-      arrivalPoint: [ this.flight.arrivalPoint || '', []],
-      departureTime: [ this.flight.departureTime || '', []],
-      arrivalTime: [this.flight.arrivalTime || '', []],
-      id: [this.flight.arrivalTime || '', []]
-      // arrivalTime: [this.flight.arrivalTime || '', [Validators.required, Validators.minLength(3)]],
-    });
+    if(this.Flight != null){
+      this.FlightForm = this.fb.group({
+        departurePoint: [ this.Flight.departurePoint || '', []],
+      arrivalPoint: [ this.Flight.arrivalPoint || '', []],
+      departureTime: [ this.Flight.departureTime || '', []],
+      arrivalTime: [this.Flight.arrivalTime || '', []],
+        // arrivalTime: [this.Flight.arrivalTime || '', [Validators.required, Validators.minLength(3)]],
+      });
+    } 
+    else {
+      this.FlightForm = this.fb.group({
+        departurePoint: [ '', []],
+        arrivalPoint: ['', []],
+        departureTime: ['', []],
+        arrivalTime: ['', []]
+      });
+    }
   }
 
-  applyChanges(flight: Flight): void {
+  applyChanges(Flight: Flight): void {
     debugger
     const id = this.route.snapshot.paramMap.get('id');
-    if(id) { 
-      this.updateFlight(flight)
+    if(id != 0) { 
+      this.updateFlight(Flight)
     }
     else {
-      this.createFlight(flight);
+      this.createFlight(Flight);
     }    
   }
 
-  updateFlight(flight: Flight) {
-    flight.id = this.flight.id;
-      this.flightService.updateFlight(flight)
+  updateFlight(Flight: Flight) {
+    Flight.id = this.Flight.id;
+      this.FlightService.updateFlight(Flight)
         .subscribe(
          (d)=> {
           console.log('d', d);
@@ -88,3 +104,4 @@ export class DetailFlightComponent implements OnInit {
       );
   }
 }
+

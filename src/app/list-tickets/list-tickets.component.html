@@ -1,9 +1,9 @@
 <div>
-    <button routerLink="/Tickets/0">Create</button>
+    <button routerLink="./0">Create</button>
     <ul  *ngFor="let Ticket of Tickets | sortFlightsByDeparturePoints:'departurePoint':'asc'">
-        <!-- <li routerLink="/flights/{{flight.id}}">{{flight.id}}</li> -->
-        <li>{{Ticket.id}}</li>
+        <li routerLink="./{{Ticket.id}}">{{Ticket.id}}</li>
         <li>{{Ticket.price}}</li>
-        <li><button (click)="delete(Ticket.id)"  routerLink="/Tickets">Delete</button></li>
+        <li>{{Ticket.flightId}}</li>
+        <li><button (click)="deleteTicket(Ticket.id)">Delete</button></li>
     </ul>
 </div>

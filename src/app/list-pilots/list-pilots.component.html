@@ -1,11 +1,11 @@
 <div>
-    <button routerLink="/Pilots/0">Create</button>
-    <ul  *ngFor="let Pilot of Pilots | sortFlightsByDeparturePoints:'departurePoint':'asc'">
-        <!-- <li routerLink="/flights/{{flight.id}}">{{flight.id}}</li> -->
+    <button routerLink="./0">Create</button>
+    <ul  *ngFor="let Pilot of Pilots">
+        <li routerLink="./{{Pilot.id}}">{{Pilot.id}}</li>
         <li>{{Pilot.name}}</li>
         <li>{{Pilot.surname}}</li>
         <li>{{Pilot.experience}}</li>
-        <li>{{Pilot.dateBirth}}</li>
-        <li><button (click)="delete(Pilot.id)"  routerLink="/Pilots">Delete</button></li>
+        <li>{{Pilot.dateBirth | date: 'longDate'}}</li>
+        <li><button (click)="deletePilot(Pilot.id)">Delete</button></li>
     </ul>
 </div>

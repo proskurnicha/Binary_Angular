@@ -1,3 +1,11 @@
-<p>
-  detail-crew works!
-</p>
+<form [formGroup]="CrewForm" (submit)="applyChanges(CrewForm.value)" >
+    <div class="form-group">
+  
+   
+        <input [hidden] = "true" placeholder="-" formControlName="id">
+    
+        <input  placeholder="Enter pilotId" formControlName="pilotId">
+  
+      <input type="submit" class="button expanded" value="Save changes" [disabled]="CrewForm.invalid">
+    </div>
+  </form>

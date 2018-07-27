@@ -1,13 +1,13 @@
 <div>
-    <button routerLink="/crews/0">Create</button>
-    <ul  *ngFor="let Crew of Crews | sortFlightsByDeparturePoints:'departurePoint':'asc'">
-        <!-- <li routerLink="/flights/{{flight.id}}">{{flight.id}}</li> -->
+    <button routerLink="./0">Create</button>
+    <ul  *ngFor="let Crew of Crews">
+        <li routerLink="./{{Crew.id}}">{{Crew.id}}</li>
         <li>{{Crew.pilotId}}</li>
         <li>
             <ul  *ngFor="let stewardess of Crew.stewardesses">
                 <li>{{stewardess.name}} {{stewardess.surname}}</li> 
             </ul>        
         </li>
-        <li><button (click)="delete(Crew.id)"  routerLink="/Crews">Delete</button></li>
+        <li><button (click)="deleteCrew(Crew.id)">Delete</button></li>
     </ul>
 </div>

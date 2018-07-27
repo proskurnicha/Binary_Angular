@@ -44,6 +44,7 @@ export class ListTypesaircraftsComponent implements OnInit {
     .subscribe(
       (d)=> {
         console.log('d', d);
+        this.getTypesAircraft();
       },
       err => {
         console.log('err', err);

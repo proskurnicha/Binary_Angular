@@ -1,3 +1,14 @@
-<p>
-  detail-ticket works!
-</p>
+
+<form [formGroup]="TicketForm" (submit)="applyChanges(TicketForm.value)" >
+    <div class="form-group">
+  
+   
+        <input [hidden] = "true" placeholder="-" formControlName="id">
+    
+        <input  placeholder="Enter price" formControlName="price">
+  
+        <input  placeholder="Enter flightId" formControlName="flightId">
+  
+      <input type="submit" class="button expanded" value="Save changes" [disabled]="TicketForm.invalid">
+    </div>
+  </form>

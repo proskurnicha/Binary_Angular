@@ -43,6 +43,7 @@ export class ListTicketsComponent implements OnInit {
     .subscribe(
       (d)=> {
         console.log('d', d);
+        this.getTickets();
       },
       err => {
         console.log('err', err);

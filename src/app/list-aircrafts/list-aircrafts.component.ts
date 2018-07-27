@@ -39,10 +39,12 @@ export class ListAircraftsComponent implements OnInit {
   }
 
   deleteAircraft(id: number) {
+    debugger
     this.AircraftService.deleteAircraft(id)
     .subscribe(
       (d)=> {
         console.log('d', d);
+        this.getAircrafts();
       },
       err => {
         console.log('err', err);

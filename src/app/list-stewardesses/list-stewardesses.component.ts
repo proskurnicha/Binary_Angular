@@ -39,11 +39,12 @@ export class ListStewardessesComponent implements OnInit {
       )
   }
 
-  deletePilot(id: number) {
+  deleteStewardess(id: number) {
     this.StewardessService.deleteStewardess(id)
     .subscribe(
       (d)=> {
         console.log('d', d);
+        this.getStewardesses();
       },
       err => {
         console.log('err', err);

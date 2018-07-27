@@ -43,6 +43,7 @@ export class ListCrewsComponent implements OnInit {
     .subscribe(
       (d)=> {
         console.log('d', d);
+        this.getCrews();
       },
       err => {
         console.log('err', err);

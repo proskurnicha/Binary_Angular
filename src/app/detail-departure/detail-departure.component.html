@@ -1,3 +1,21 @@
-<p>
-  detail-departure works!
-</p>
+
+<form [formGroup]="DepartureForm" (submit)="applyChanges(DepartureForm.value)" >
+    <div class="form-group">
+  
+   
+        <input [hidden] = "true" placeholder="-" formControlName="id">
+    
+        <input  placeholder="Enter flightId" formControlName="flightId">
+  
+        <input  placeholder="Enter crewId" formControlName="crewId">
+
+        <input type="time" 
+         formControlName="departureTime"
+         />
+  
+         <input  placeholder="Enter aircraftId" formControlName="aircraftId">
+  
+  
+      <input type="submit" class="button expanded" value="Save changes" [disabled]="DepartureForm.invalid">
+    </div>
+  </form>

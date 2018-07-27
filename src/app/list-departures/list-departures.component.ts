@@ -39,10 +39,12 @@ export class ListDeparturesComponent implements OnInit {
   }
 
   deleteDeparture(id: number) {
+    debugger
     this.DepartureService.deleteDeparture(id)
     .subscribe(
       (d)=> {
         console.log('d', d);
+        this.getDepartures();
       },
       err => {
         console.log('err', err);
