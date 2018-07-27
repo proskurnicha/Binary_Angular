@@ -1,10 +1,20 @@
-<div>
-        <button routerLink="./0">Create</button>
-        <ul  *ngFor="let Aircraft of Aircrafts | sortFlightsByDeparturePoints:'departurePoint':'asc'">
-            <li routerLink="{{Aircraft.id}}">{{Aircraft.id}}</li>
-            <li>{{Aircraft.aircraftName}}</li>
-            <li>{{Aircraft.dateRelease | date: 'longDate'}}</li>
-            <li>{{Aircraft.lifetime}}</li>
-            <li><button (click)="deleteAircraft(Aircraft.id)">Delete</button></li>
-        </ul>
+    <div>
+        <button mat-button class="createButton" routerLink="./0">Create new aircraft</button>
+
+        <table id="entities">
+                <tr>
+                  <th >Aircraft Name </th>
+                  <th>Date release</th>
+                  <th>Lifetime</th>
+                  <th></th>
+                </tr>
+                
+                <tr *ngFor="let Aircraft of Aircrafts" >
+                  <td  routerLink="./{{Aircraft.id}}">{{Aircraft.aircraftName}}</td>
+                  <td>{{Aircraft.dateRelease | date: 'longDate'}}</td>
+                  <td>{{Aircraft.lifetime}}</td>
+                  <td><button mat-button (click)="deleteAircraft(Aircraft.id)">Delete</button></td>
+                </tr>
+        </table>
     </div>
+    

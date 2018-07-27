@@ -1,11 +1,22 @@
 <div>
-    <button routerLink="./0">Create</button>
-    <ul  *ngFor="let Stewardess of Stewardesses">
-        <li routerLink="./{{Stewardess.id}}">{{Stewardess.id}}</li>
-        <li>{{Stewardess.name}}</li>
-        <li>{{Stewardess.surname}}</li>
-        <li>{{Stewardess.dateBirth| date: 'longDate'}}</li>
-        <li>{{Stewardess.crewId}}</li>
-        <li><button (click)="deleteStewardess(Stewardess.id)">Delete</button></li>
-    </ul>
-</div>
+        <button mat-button class="createButton" routerLink="./0">Create new </button>
+
+        <table id="entities">
+                <tr>
+                  <th>name</th>
+                  <th>surname</th>
+                  <th>crewId</th>
+                  <th>dateBirth</th>
+                  <th></th>
+                </tr>
+                
+                <tr *ngFor="let Stewardess of Stewardesses" >
+                  <td  routerLink="./{{Stewardess.id}}">{{Stewardess.name}}</td>
+                  <td>{{Stewardess.surname}}</td>
+                  <td>{{Stewardess.crewId}}</td>
+                  <td>{{Stewardess.dateBirth | date: 'longDate'}}</td>
+                  <td><button mat-button (click)="deleteStewardess(Stewardess.id)">Delete</button></td>
+                </tr>
+        </table>
+    </div>
+    

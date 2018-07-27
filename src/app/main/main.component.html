@@ -1,9 +1,15 @@
-<button [routerLink]="['aircrafts']">AIRCTAFTS</button>
-<button [routerLink]="['crews']">CREWS</button>
-<button [routerLink]="['departures']">DEPARTURES</button>
-<button [routerLink]="['flights']">FLIGHTS</button>
-<button [routerLink]="['pilots']">PILOTS</button>
-<button [routerLink]="['stewardesses']">STEWARDESSES</button>
-<button [routerLink]="['tickets']">TICKETS</button>
-<button [routerLink]="['typesaircraft']">TYPES AIRCRAFTS</button>
-<router-outlet></router-outlet>
+<div class="main_container" >
+    <div>
+            <button mat-button [matMenuTriggerFor]="menu" [routerLink]="['aircrafts']" >AIRCTAFTS</button>
+            <button mat-button [matMenuTriggerFor]="menu" [routerLink]="['crews']" >CREWS</button>
+            <button mat-button [matMenuTriggerFor]="menu" [routerLink]="['departures']" >DEPARTURES</button>
+            <button mat-button [matMenuTriggerFor]="menu" [routerLink]="['flights']" >FLIGHTS</button>
+            <button mat-button [matMenuTriggerFor]="menu" [routerLink]="['pilots']" >PILOTS</button>
+            <button mat-button [matMenuTriggerFor]="menu" [routerLink]="['stewardesses']" >STEWARDESSES</button>
+            <button mat-button [matMenuTriggerFor]="menu" [routerLink]="['tickets']" >TICKETS</button>
+            <button mat-button [matMenuTriggerFor]="menu" [routerLink]="['typesaircraft']" >TYPES AIRCRAFTS</button>   
+          
+    <router-outlet></router-outlet>
+    </div>
+</div>
+

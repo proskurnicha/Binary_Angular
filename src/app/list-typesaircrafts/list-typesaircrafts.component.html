@@ -1,10 +1,22 @@
 <div>
-    <button routerLink="./0">Create</button>
-    <ul  *ngFor="let TypeAircraft of TypesAircraft">
-        <li routerLink="./{{TypeAircraft.id}}">{{TypeAircraft.id}}</li>
-        <li>{{TypeAircraft.aircraftModel}}</li>
-        <li>{{TypeAircraft.carryingCapacity}}</li>
-        <li>{{TypeAircraft.numberPlaces}}</li>
-        <li><button (click)="deleteTypeAircraft(TypeAircraft.id)">Delete</button></li>
-    </ul>
-</div>
+        <button mat-button class="createButton" routerLink="./0">Create new TypeAircraft</button>
+
+        <table id="entities">
+                <tr>
+                  <th >id</th>
+                  <th>aircraftModel</th>
+                  <th>carryingCapacity</th>
+                  <th>numberPlaces</th>
+                  <th></th>
+                </tr>
+                
+                <tr *ngFor="let TypeAircraft of TypesAircraft" >
+                  <td  routerLink="./{{TypeAircraft.id}}">{{TypeAircraft.id}}</td>
+                  <td>{{TypeAircraft.aircraftModel}}</td>
+                  <td>{{TypeAircraft.carryingCapacity}}</td>
+                  <td>{{TypeAircraft.numberPlaces}}</td>
+                  <td><button mat-button (click)="deleteTypeAircraft(TypeAircraft.id)">Delete</button></td>
+                </tr>
+        </table>
+    </div>
+    

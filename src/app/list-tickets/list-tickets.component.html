@@ -1,9 +1,20 @@
 <div>
-    <button routerLink="./0">Create</button>
-    <ul  *ngFor="let Ticket of Tickets | sortFlightsByDeparturePoints:'departurePoint':'asc'">
-        <li routerLink="./{{Ticket.id}}">{{Ticket.id}}</li>
-        <li>{{Ticket.price}}</li>
-        <li>{{Ticket.flightId}}</li>
-        <li><button (click)="deleteTicket(Ticket.id)">Delete</button></li>
-    </ul>
-</div>
+        <button mat-button class="createButton" routerLink="./0">Create new Ticket</button>
+
+        <table id="entities">
+                <tr>
+                  <th >Id </th>
+                  <th>price</th>
+                  <th>flightId</th>
+                  <th></th>
+                </tr>
+                
+                <tr *ngFor="let Ticket of Tickets" >
+                  <td  routerLink="./{{Ticket.id}}">{{Ticket.id}}</td>
+                  <td>{{Ticket.price}}</td>
+                  <td>{{Ticket.flightId}}</td>
+                  <td><button mat-button (click)="deleteTicket(Ticket.id)">Delete</button></td>
+                </tr>
+        </table>
+    </div>
+    

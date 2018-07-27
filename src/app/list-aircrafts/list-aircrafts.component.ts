@@ -11,10 +11,11 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class ListAircraftsComponent implements OnInit {
 
+  
   Aircraft: Aircraft;
 
   Aircrafts: Array<Aircraft>;
-
+  displayedColumns: string[] = ['departurePoint', 'name', 'weight', 'symbol'];
   constructor(private http: HttpClient,
     private AircraftService: AircraftService) { 
       this.getAircrafts();

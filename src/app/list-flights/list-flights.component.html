@@ -1,17 +1,29 @@
+<!-- 
+            <ul  *ngFor="let Flight of flight.Flights">
+                <li>{{Flight.id}}</li>
+                <li>{{Flight.price}}</li>   
+            </ul>         -->
+   
+
 <div>
-    <button routerLink="0">Create</button>
-    <ul  *ngFor="let flight of flights | sortFlightsByDeparturePoints:'departurePoint':'asc'">
-        <li routerLink="{{flight.id}}">{{flight.id}}</li>
-        <li>{{flight.departurePoint}}</li>
-        <li>{{flight.arrivalPoint}}</li>
-        <li>{{flight.departureTime}}</li>
-        <li>{{flight.arrivalTime}}</li>
-        <li>
-            <ul  *ngFor="let ticket of flight.tickets">
-                <li>{{ticket.id}}</li>
-                <li>{{ticket.price}}</li>   
-            </ul>        
-        </li>
-        <li><button (click)="deleteFlight(flight.id)"  routerLink="/flights">Delete</button></li>
-    </ul>
-</div>
+        <button mat-button class="createButton" routerLink="./0">Create new Flight</button>
+
+        <table id="entities">
+                <tr>
+                  <th>departurePoint </th>
+                  <th>arrivalPoint</th>
+                  <th>departureTime</th>
+                  <th>arrivalTime</th>
+                  <th></th>
+                </tr>
+                
+                <tr *ngFor="let Flight of flights" >
+                  <td  routerLink="./{{Flight.id}}">{{Flight.departurePoint}}</td>
+                  <td>{{Flight.arrivalPoint}}</td>
+                  <td>{{Flight.departureTime}}</td>
+                  <td>{{Flight.arrivalTime}}</td>
+                  <td><button mat-button (click)="deleteFlight(Flight.id)">Delete</button></td>
+                </tr>
+        </table>
+    </div>
+    

@@ -26,6 +26,10 @@ import { ListTicketsComponent } from './list-tickets/list-tickets.component';
 import { DetailTicketComponent } from './detail-ticket/detail-ticket.component';
 import { ListTypesaircraftsComponent } from './list-typesaircrafts/list-typesaircrafts.component';
 import { DetailTypeaircraftComponent } from './detail-typeaircraft/detail-typeaircraft.component';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatTableModule} from '@angular/material/table';
+
 
 @NgModule({
   declarations: [
@@ -47,7 +51,7 @@ import { DetailTypeaircraftComponent } from './detail-typeaircraft/detail-typeai
     ListTicketsComponent,
     DetailTicketComponent,
     ListTypesaircraftsComponent,
-    DetailTypeaircraftComponent
+    DetailTypeaircraftComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,6 +61,10 @@ import { DetailTypeaircraftComponent } from './detail-typeaircraft/detail-typeai
     CommonModule,
     //SharedModule,
     AppRoutingModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatMenuModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
