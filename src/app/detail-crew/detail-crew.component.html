@@ -1,11 +1,12 @@
-<form [formGroup]="CrewForm" (submit)="applyChanges(CrewForm.value)" >
-    <div class="form-group">
-  
-   
-        <input [hidden] = "true" placeholder="-" formControlName="id">
+    <form [formGroup]="CrewForm" class="example-form" (submit)="applyChanges(CrewForm.value)" >
+
+        <input [hidden] = "true" placeholder="Enter your First Name" formControlName="id">
     
-        <input  placeholder="Enter pilotId" formControlName="pilotId">
-  
-      <input type="submit" class="button expanded" value="Save changes" [disabled]="CrewForm.invalid">
-    </div>
-  </form>
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Enter pilotId" formControlName="pilotId">
+        </mat-form-field>
+        
+        <div class="saveButton">
+            <button mat-button  [disabled]="CrewForm.invalid">Save changes</button>
+         </div>  
+    </form>

@@ -11,7 +11,7 @@
                 </tr>
                 
                 <tr *ngFor="let Departure of Departures" >
-                  <td  routerLink="./{{Departure.id}}">{{Departure.departureTime}}</td>
+                  <td  routerLink="./{{Departure.id}}">{{Departure.departureTime | date: 'hh:mm'}}</td>
                   <td>{{Departure.flightId}}</td>
                   <td>{{Departure.crewId}}</td>
                   <td>{{Departure.aircraftId}}</td>

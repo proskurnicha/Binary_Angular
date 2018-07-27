@@ -1,20 +1,27 @@
-<form [formGroup]="StewardessForm" (submit)="applyChanges(StewardessForm.value)" >
-    <div class="form-group">
+ 
+<form [formGroup]="StewardessForm"  class="example-form"  (submit)="applyChanges(StewardessForm.value)" >
    
-        <input [hidden] = "true" placeholder="-" formControlName="id">
-    
-        <input  placeholder="Enter name" formControlName="name">
-  
-        <input  placeholder="Enter surname" formControlName="surname">
+    <input [hidden] = "true" placeholder="-" formControlName="id">
 
-        <input type="date" placeholder="yyyy-MM-dd" min="0000-00-00"
-         max="2019-01-01" required  
-         formControlName="dateBirth"
-         />
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Enter name" formControlName="name">
+    </mat-form-field>
 
-         <input  placeholder="Enter crewId" formControlName="crewId" required>
+    <mat-form-field class="example-full-width">
+        <input matInput placeholder="Enter surname" formControlName="surname">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <input matInput  placeholder="Enter crewId" formControlName="crewId" required>
+    </mat-form-field>
   
-  
-      <input type="submit" class="button expanded" value="Save changes" [disabled]="StewardessForm.invalid">
-    </div>
-  </form>
+
+     <input type="date" placeholder="yyyy-MM-dd" min="0000-00-00"
+     max="2019-01-01" required  
+     formControlName="dateBirth"
+     />
+
+     <div class="saveButton">
+        <button mat-button  [disabled]="StewardessForm.invalid">Save changes</button>
+     </div> 
+</form>

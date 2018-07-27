@@ -29,7 +29,7 @@ import { DetailTypeaircraftComponent } from './detail-typeaircraft/detail-typeai
 import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTableModule} from '@angular/material/table';
-
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -59,12 +59,13 @@ import {MatTableModule} from '@angular/material/table';
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    //SharedModule,
+    SharedModule,
     AppRoutingModule,
     MatButtonModule,
     MatCheckboxModule,
     MatMenuModule,
     MatTableModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

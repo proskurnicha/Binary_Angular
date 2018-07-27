@@ -1,21 +1,26 @@
 
-<form [formGroup]="DepartureForm" (submit)="applyChanges(DepartureForm.value)" >
-    <div class="form-group">
-  
-   
+<form [formGroup]="DepartureForm"  class="example-form" (submit)="applyChanges(DepartureForm.value)" >
+
         <input [hidden] = "true" placeholder="-" formControlName="id">
     
-        <input  placeholder="Enter flightId" formControlName="flightId">
-  
-        <input  placeholder="Enter crewId" formControlName="crewId">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Enter flightId" formControlName="flightId">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Enter crewId" formControlName="crewId">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Enter aircraftId" formControlName="aircraftId">
+        </mat-form-field>     
 
         <input type="time" 
          formControlName="departureTime"
          />
   
-         <input  placeholder="Enter aircraftId" formControlName="aircraftId">
-  
-  
-      <input type="submit" class="button expanded" value="Save changes" [disabled]="DepartureForm.invalid">
-    </div>
+         <div class="saveButton">
+            <button mat-button  [disabled]="DepartureForm.invalid">Save changes</button>
+         </div>  
+      
   </form>

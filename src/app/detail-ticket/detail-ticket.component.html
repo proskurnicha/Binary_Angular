@@ -1,14 +1,17 @@
 
 <form [formGroup]="TicketForm" (submit)="applyChanges(TicketForm.value)" >
-    <div class="form-group">
-  
-   
         <input [hidden] = "true" placeholder="-" formControlName="id">
-    
-        <input  placeholder="Enter price" formControlName="price">
-  
-        <input  placeholder="Enter flightId" formControlName="flightId">
-  
-      <input type="submit" class="button expanded" value="Save changes" [disabled]="TicketForm.invalid">
-    </div>
+      
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Enter price" formControlName="price">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <input matInput  placeholder="Enter flightId" formControlName="flightId">
+        </mat-form-field>
+        
+        <div class="saveButton">
+            <button mat-button  [disabled]="TicketForm.invalid">Save changes</button>
+         </div>  
+
   </form>

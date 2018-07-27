@@ -1,25 +1,32 @@
 
-<form [formGroup]="AircraftForm" (submit)="applyChanges(AircraftForm.value)" >
-  <div class="form-group">
+<form [formGroup]="AircraftForm" class="example-form" (submit)="applyChanges(AircraftForm.value)" >
 
- 
-      <input [hidden] = "true" placeholder="Enter your First Name" formControlName="id">
+      <input [hidden] = "true" placeholder="-" formControlName="id">
   
-      <input  placeholder="Enter type aircraft id " formControlName="typeAircraftId">
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="Enter type aircraft id " formControlName="typeAircraftId">   
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="Enter type aircraft name " formControlName="aircraftName">   
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+          <input matInput placeholder="Enter type crewId" formControlName="crewId">   
+      </mat-form-field>
+      
 
       <input type="date" placeholder="yyyy-MM-dd" min="0000-00-00"
        max="2019-01-01" required  
        formControlName="dateRelease"
        />
 
-      <input  placeholder="Enter aircraft name" formControlName="aircraftName">
-
-
       <input type="time" placeholder="hh:mm" min="00-00" max="23-59"
        required  formControlName="lifetime"/>
-
-       <input  placeholder="Enter crewId" formControlName="crewId">
-
-    <input type="submit" class="button expanded" value="Save changes" [disabled]="AircraftForm.invalid">
-  </div>
-</form>z
+      
+          <!-- <input type="submit" class="button expanded" value="Save changes" [disabled]="AircraftForm.invalid"> -->
+     
+     <div class="saveButton">
+        <button mat-button  [disabled]="AircraftForm.invalid">Save changes</button>
+     </div>     
+</form>

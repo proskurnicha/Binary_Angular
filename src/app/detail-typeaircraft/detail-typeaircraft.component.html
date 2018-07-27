@@ -1,15 +1,20 @@
-<form [formGroup]="TypeAircraftForm" (submit)="applyChanges(TypeAircraftForm.value)" >
-    <div class="form-group">
-  
-   
+<form [formGroup]="TypeAircraftForm" class="example-form" (submit)="applyChanges(TypeAircraftForm.value)" >
         <input [hidden] = "true" placeholder="-" formControlName="id">
-    
-        <input  placeholder="Enter aircraftModel" formControlName="aircraftModel">
   
-        <input  placeholder="Enter numberPlaces" formControlName="numberPlaces">
-  
-         <input  placeholder="Enter carryingCapacity" formControlName="carryingCapacity">
-  
-      <input type="submit" class="button expanded" value="Save changes" [disabled]="TypeAircraftForm.invalid">
-    </div>
+         <mat-form-field class="example-full-width">
+            <input matInput placeholder="Enter aircraftModel" formControlName="aircraftModel">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+              <input matInput placeholder="Enter numberPlaces" formControlName="numberPlaces">
+          </mat-form-field>
+
+         <mat-form-field class="example-full-width">
+            <input matInput placeholder="Enter carryingCapacity" formControlName="carryingCapacity">
+        </mat-form-field>
+        
+        <div class="saveButton">
+            <button mat-button  [disabled]="TypeAircraftForm.invalid">Save changes</button>
+         </div> 
+
   </form>

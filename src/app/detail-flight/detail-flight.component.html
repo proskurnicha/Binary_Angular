@@ -1,19 +1,22 @@
 
-<form [formGroup]="FlightForm" (submit)="applyChanges(FlightForm.value)" >
-    <div class="form-group">
+<form [formGroup]="FlightForm" class="example-form" (submit)="applyChanges(FlightForm.value)" >
   
-   
         <input [hidden] = "true" placeholder="-" formControlName="id">
 
-        <input  placeholder="Enter departurePoint" formControlName="departurePoint">
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Enter departurePoint" formControlName="departurePoint">
+        </mat-form-field>
 
-        <input  placeholder="Enter arrivalPoint" formControlName="arrivalPoint">
-  
+        <mat-form-field class="example-full-width">
+            <input matInput placeholder="Enter arrivalPoint" formControlName="arrivalPoint">
+        </mat-form-field>
+
+        
         <input type="time" placeholder="Enter departureTime" formControlName="departureTime">
 
-         <input type="time"  placeholder="Enter arrivalTime" formControlName="arrivalTime">
+        <input type="time"  placeholder="Enter arrivalTime" formControlName="arrivalTime">
   
-  
-      <input type="submit" class="button expanded" value="Save changes" [disabled]="FlightForm.invalid">
-    </div>
-  </form>
+      <div class="saveButton">
+          <button mat-button  [disabled]="FlightForm.invalid">Save changes</button>
+       </div>  
+</form>
