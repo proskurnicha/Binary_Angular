@@ -11,7 +11,9 @@
                 </tr>
                 
                 <tr *ngFor="let TypeAircraft of TypesAircraft" >
-                  <td  routerLink="./{{TypeAircraft.id}}">{{TypeAircraft.id}}</td>
+                  <td  [routerLink]="['./', TypeAircraft.id]"> 
+                    {{TypeAircraft.id}}  
+                  </td>
                   <td>{{TypeAircraft.aircraftModel}}</td>
                   <td>{{TypeAircraft.carryingCapacity}}</td>
                   <td>{{TypeAircraft.numberPlaces}}</td>

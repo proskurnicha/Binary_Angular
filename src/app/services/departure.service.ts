@@ -12,23 +12,23 @@ export class DepartureService {
 
   constructor(private http: HttpClient) { }
 
-  getDepartures(): Observable<Departure> {
+  getDepartures(): Observable<any> {
     return this.http.get(`${this.api}`);
   }
 
-  getDeparturesById(id): Observable<Departure> {
+  getDeparturesById(id): Observable<any> {
     return this.http.get(`${this.api}/${id}`);
   }
 
-  createDeparture(Departure: Departure): Observable<Departure> {
+  createDeparture(Departure: Departure): Observable<any> {
     return this.http.post(`${this.api}/`, Departure);
   }
 
-  updateDeparture(Departure: Departure): Observable<Departure> {
+  updateDeparture(Departure: Departure): Observable<any> {
     return this.http.put(`${this.api}/${Departure.id}`, Departure);
   }
 
-  deleteDeparture(id): Observable<Departure> {
+  deleteDeparture(id): Observable<any> {
     return this.http.delete(`${this.api}/${id}`);
   }
 }

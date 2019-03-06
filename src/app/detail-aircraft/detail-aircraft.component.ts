@@ -13,18 +13,18 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class DetailAircraftComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, 
+  constructor(private route: ActivatedRoute,
               private fb: FormBuilder,
-              private AircraftService: AircraftService) { 
+              private AircraftService: AircraftService) {
     const id = this.route.snapshot.paramMap.get('id');
-    if(id != 0) {
+    if(id != '0') {
       this.getAircraftById();
     }
     else {
       this.createAircraftForm();
     }
   }
-  
+
   Aircraft: Aircraft;
   AircraftForm: FormGroup;
 
@@ -58,18 +58,18 @@ export class DetailAircraftComponent implements OnInit {
     );
   }
 
-  
+
   createAircraftForm(): void {
     if(this.Aircraft != null){
       this.AircraftForm = this.fb.group({
+        id: [this.Aircraft.id, []],
         aircraftName: [ this.Aircraft.aircraftName, []],
         typeAircraftId: [ this.Aircraft.typeAircraftId, []],
         dateRelease: [this.Aircraft.dateRelease, []],
         lifetime: [this.Aircraft.lifetime, []],
-        crewId:[this.Aircraft.crewId, []],
         // arrivalTime: [this.Aircraft.arrivalTime || '', [Validators.required, Validators.minLength(3)]],
       });
-    } 
+    }
     else {
       this.AircraftForm = this.fb.group({
         aircraftName: [ '', []],
@@ -84,12 +84,12 @@ export class DetailAircraftComponent implements OnInit {
   applyChanges(Aircraft: Aircraft): void {
     debugger
     const id = this.route.snapshot.paramMap.get('id');
-    if(id != 0) { 
+    if(id !='0') {
       this.updateAircraft(Aircraft)
     }
     else {
       this.createAircraft(Aircraft);
-    }    
+    }
   }
 
   updateAircraft(Aircraft: Aircraft) {

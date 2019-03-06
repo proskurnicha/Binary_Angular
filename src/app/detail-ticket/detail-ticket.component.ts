@@ -13,18 +13,18 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class DetailTicketComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, 
+  constructor(private route: ActivatedRoute,
               private fb: FormBuilder,
-              private TicketService: TicketService) { 
+              private TicketService: TicketService) {
     const id = this.route.snapshot.paramMap.get('id');
-    if(id != 0) {
+    if(id != '0') {
       this.getTicketById();
     }
     else {
       this.createTicketForm();
     }
   }
-  
+
   Ticket: Ticket;
   TicketForm: FormGroup;
 
@@ -57,15 +57,15 @@ export class DetailTicketComponent implements OnInit {
     );
   }
 
-  
+
   createTicketForm(): void {
     if(this.Ticket != null){
       this.TicketForm = this.fb.group({
-        price: [ this.Ticket.name, []],
-        flightId: [ this.Ticket.surname, []],
+        price: [ this.Ticket.price, []],
+        flightId: [ this.Ticket.flightId, []],
         // arrivalTime: [this.Ticket.arrivalTime || '', [Validators.required, Validators.minLength(3)]],
       });
-    } 
+    }
     else {
       this.TicketForm = this.fb.group({
         price: [ '', []],
@@ -77,12 +77,12 @@ export class DetailTicketComponent implements OnInit {
   applyChanges(Ticket: Ticket): void {
     debugger
     const id = this.route.snapshot.paramMap.get('id');
-    if(id != 0) { 
+    if(id != '0') {
       this.updateTicket(Ticket)
     }
     else {
       this.createTicket(Ticket);
-    }    
+    }
   }
 
   updateTicket(Ticket: Ticket) {

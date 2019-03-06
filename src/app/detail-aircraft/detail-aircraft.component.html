@@ -2,31 +2,36 @@
 <form [formGroup]="AircraftForm" class="example-form" (submit)="applyChanges(AircraftForm.value)" >
 
       <input [hidden] = "true" placeholder="-" formControlName="id">
-  
+
       <mat-form-field class="example-full-width">
-          <input matInput placeholder="Enter type aircraft id " formControlName="typeAircraftId">   
+          <input matInput placeholder="Enter type aircraft id " formControlName="typeAircraftId">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-          <input matInput placeholder="Enter type aircraft name " formControlName="aircraftName">   
+          <input matInput placeholder="Enter type aircraft name " formControlName="aircraftName">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-          <input matInput placeholder="Enter type crewId" formControlName="crewId">   
+          <input matInput placeholder="Enter type crewId" formControlName="lifetime">
       </mat-form-field>
-      
 
-      <input type="date" placeholder="yyyy-MM-dd" min="0000-00-00"
-       max="2019-01-01" required  
+
+      <!-- <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field> -->
+      <!-- <input type="date" placeholder="yyyy-MM-dd" min="0000-00-00"
+       max="2019-01-01" required
        formControlName="dateRelease"
-       />
+       /> -->
 
       <input type="time" placeholder="hh:mm" min="00-00" max="23-59"
        required  formControlName="lifetime"/>
-      
+
           <!-- <input type="submit" class="button expanded" value="Save changes" [disabled]="AircraftForm.invalid"> -->
-     
+
      <div class="saveButton">
         <button mat-button  [disabled]="AircraftForm.invalid">Save changes</button>
-     </div>     
+     </div>
 </form>

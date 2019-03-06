@@ -12,23 +12,23 @@ export class FlightService {
 
   constructor(private http: HttpClient) { }
 
-  getFlights(): Observable<Flight> {
+  getFlights(): Observable<any> {
     return this.http.get(`${this.api}`);
   }
 
-  getFlightsById(id): Observable<Flight> {
+  getFlightsById(id): Observable<any> {
     return this.http.get(`${this.api}/${id}`);
   }
 
-  createFlight(flight: Flight): Observable<Flight> {
+  createFlight(flight: Flight): Observable<any> {
     return this.http.post(`${this.api}/`, flight);
   }
 
-  updateFlight(flight: Flight): Observable<Flight> {
+  updateFlight(flight: Flight): Observable<any> {
     return this.http.put(`${this.api}/${flight.id}`, flight);
   }
 
-  deleteFlight(id): Observable<Flight> {
+  deleteFlight(id): Observable<any> {
     return this.http.delete(`${this.api}/${id}`);
   }
 }

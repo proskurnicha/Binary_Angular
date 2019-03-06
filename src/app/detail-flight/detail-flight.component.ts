@@ -13,19 +13,19 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class DetailFlightComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, 
+  constructor(private route: ActivatedRoute,
               private fb: FormBuilder,
-              private FlightService: FlightService) { 
+              private FlightService: FlightService) {
     const id = this.route.snapshot.paramMap.get('id');
     debugger
-    if(id != 0) {
+    if(id != '0') {
       this.getFlightById();
     }
     else {
       this.createFlightForm();
     }
   }
-  
+
   Flight: Flight;
   FlightForm: FormGroup;
 
@@ -59,7 +59,7 @@ export class DetailFlightComponent implements OnInit {
     );
   }
 
-  
+
   createFlightForm(): void {
     if(this.Flight != null){
       this.FlightForm = this.fb.group({
@@ -69,7 +69,7 @@ export class DetailFlightComponent implements OnInit {
       arrivalTime: [this.Flight.arrivalTime || '', []],
         // arrivalTime: [this.Flight.arrivalTime || '', [Validators.required, Validators.minLength(3)]],
       });
-    } 
+    }
     else {
       this.FlightForm = this.fb.group({
         departurePoint: [ '', []],
@@ -83,12 +83,12 @@ export class DetailFlightComponent implements OnInit {
   applyChanges(Flight: Flight): void {
     debugger
     const id = this.route.snapshot.paramMap.get('id');
-    if(id != 0) { 
+    if(id != '0') {
       this.updateFlight(Flight)
     }
     else {
       this.createFlight(Flight);
-    }    
+    }
   }
 
   updateFlight(Flight: Flight) {

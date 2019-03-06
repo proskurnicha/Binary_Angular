@@ -12,23 +12,23 @@ export class PilotService {
 
   constructor(private http: HttpClient) { }
 
-  getPilots(): Observable<Pilot> {
+  getPilots(): Observable<any> {
     return this.http.get(`${this.api}`);
   }
 
-  getPilotsById(id): Observable<Pilot> {
+  getPilotsById(id): Observable<any> {
     return this.http.get(`${this.api}/${id}`);
   }
 
-  createPilot(Pilot: Pilot): Observable<Pilot> {
+  createPilot(Pilot: Pilot): Observable<any> {
     return this.http.post(`${this.api}/`, Pilot);
   }
 
-  updatePilot(Pilot: Pilot): Observable<Pilot> {
+  updatePilot(Pilot: Pilot): Observable<any> {
     return this.http.put(`${this.api}/${Pilot.id}`, Pilot);
   }
 
-  deletePilot(id): Observable<Pilot> {
+  deletePilot(id): Observable<any> {
     return this.http.delete(`${this.api}/${id}`);
   }
 }

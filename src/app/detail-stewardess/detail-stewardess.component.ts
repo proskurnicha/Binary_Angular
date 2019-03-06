@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Stewardess } from './../model/Stewardess';
+import { Stewardesses } from './../model/Stewardesses';
 import { StewardessService } from './../services/Stewardess.service';
 import { ActivatedRoute } from '@angular/router';
 import {NgForm} from '@angular/forms';
@@ -13,19 +13,19 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class DetailStewardessComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, 
+  constructor(private route: ActivatedRoute,
               private fb: FormBuilder,
-              private StewardessService: StewardessService) { 
+              private StewardessService: StewardessService) {
     const id = this.route.snapshot.paramMap.get('id');
-    if(id != 0) {
+    if(id != '0') {
       this.getStewardessById();
     }
     else {
       this.createStewardessForm();
     }
   }
-  
-  Stewardess: Stewardess;
+
+  Stewardess: Stewardesses;
   StewardessForm: FormGroup;
 
   ngOnInit() {
@@ -45,7 +45,7 @@ export class DetailStewardessComponent implements OnInit {
       );
   }
 
-  createStewardess(Stewardess: Stewardess) {
+  createStewardess(Stewardess: Stewardesses) {
     debugger
     this.StewardessService.createStewardess(Stewardess)
     .subscribe(
@@ -58,7 +58,7 @@ export class DetailStewardessComponent implements OnInit {
     );
   }
 
-  
+
   createStewardessForm(): void {
     if(this.Stewardess != null){
       this.StewardessForm = this.fb.group({
@@ -68,7 +68,7 @@ export class DetailStewardessComponent implements OnInit {
         crewId: [this.Stewardess.crewId, []]
         // arrivalTime: [this.Stewardess.arrivalTime || '', [Validators.required, Validators.minLength(3)]],
       });
-    } 
+    }
     else {
       this.StewardessForm = this.fb.group({
         name: [ '', []],
@@ -79,18 +79,18 @@ export class DetailStewardessComponent implements OnInit {
     }
   }
 
-  applyChanges(Stewardess: Stewardess): void {
+  applyChanges(Stewardess: Stewardesses): void {
     debugger
     const id = this.route.snapshot.paramMap.get('id');
-    if(id != 0) { 
+    if(id != '0') {
       this.updateStewardess(Stewardess)
     }
     else {
       this.createStewardess(Stewardess);
-    }    
+    }
   }
 
-  updateStewardess(Stewardess: Stewardess) {
+  updateStewardess(Stewardess: Stewardesses) {
     Stewardess.id = this.Stewardess.id;
       this.StewardessService.updateStewardess(Stewardess)
         .subscribe(

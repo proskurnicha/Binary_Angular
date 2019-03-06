@@ -2,8 +2,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '../../../node_modules/@angular/common/http';
 import { Observable } from '../../../node_modules/rxjs';
-import { Stewardess } from './../model/Stewardess';
 import { environment } from './../../environments/environment';
+import { Stewardesses } from 'src/app/model/stewardesses';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,23 +13,23 @@ export class StewardessService {
 
   constructor(private http: HttpClient) { }
 
-  getStewardesses(): Observable<Stewardess> {
+  getStewardesses(): Observable<any> {
     return this.http.get(`${this.api}`);
   }
 
-  getStewardessesById(id): Observable<Stewardess> {
+  getStewardessesById(id): Observable<any> {
     return this.http.get(`${this.api}/${id}`);
   }
 
-  createStewardess(Stewardess: Stewardess): Observable<Stewardess> {
+  createStewardess(Stewardess: Stewardesses): Observable<any> {
     return this.http.post(`${this.api}/`, Stewardess);
   }
 
-  updateStewardess(Stewardess: Stewardess): Observable<Stewardess> {
+  updateStewardess(Stewardess: Stewardesses): Observable<any> {
     return this.http.put(`${this.api}/${Stewardess.id}`, Stewardess);
   }
 
-  deleteStewardess(id): Observable<Stewardess> {
+  deleteStewardess(id): Observable<any> {
     return this.http.delete(`${this.api}/${id}`);
   }
 }

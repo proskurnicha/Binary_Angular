@@ -14,18 +14,18 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 export class DetailTypeaircraftComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, 
+  constructor(private route: ActivatedRoute,
               private fb: FormBuilder,
-              private TypeAircraftService: TypeAircraftService) { 
+              private TypeAircraftService: TypeAircraftService) {
     const id = this.route.snapshot.paramMap.get('id');
-    if(id != 0) {
+    if(id != '0') {
       this.getTypeAircraftById();
     }
     else {
       this.createTypeAircraftForm();
     }
   }
-  
+
   TypeAircraft: TypeAircraft;
   TypeAircraftForm: FormGroup;
 
@@ -58,7 +58,7 @@ export class DetailTypeaircraftComponent implements OnInit {
     );
   }
 
-  
+
   createTypeAircraftForm(): void {
     if(this.TypeAircraft != null){
       this.TypeAircraftForm = this.fb.group({
@@ -67,7 +67,7 @@ export class DetailTypeaircraftComponent implements OnInit {
         carryingCapacity: [this.TypeAircraft.carryingCapacity, []],
         // arrivalTime: [this.TypeAircraft.arrivalTime || '', [Validators.required, Validators.minLength(3)]],
       });
-    } 
+    }
     else {
       this.TypeAircraftForm = this.fb.group({
         aircraftModel: [ '', []],
@@ -79,12 +79,12 @@ export class DetailTypeaircraftComponent implements OnInit {
 
   applyChanges(TypeAircraft: TypeAircraft): void {
     const id = this.route.snapshot.paramMap.get('id');
-    if(id != 0) { 
+    if(id != '0') {
       this.updateTypeAircraft(TypeAircraft)
     }
     else {
       this.createTypeAircraft(TypeAircraft);
-    }    
+    }
   }
 
   updateTypeAircraft(TypeAircraft: TypeAircraft) {

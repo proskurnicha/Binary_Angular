@@ -13,23 +13,23 @@ export class TicketService {
 
   constructor(private http: HttpClient) { }
 
-  getTickets(): Observable<Ticket> {
+  getTickets(): Observable<any> {
     return this.http.get(`${this.api}`);
   }
 
-  getTicketsById(id): Observable<Ticket> {
+  getTicketsById(id): Observable<any> {
     return this.http.get(`${this.api}/${id}`);
   }
 
-  createTicket(Ticket: Ticket): Observable<Ticket> {
+  createTicket(Ticket: Ticket): Observable<any> {
     return this.http.post(`${this.api}/`, Ticket);
   }
 
-  updateTicket(Ticket: Ticket): Observable<Ticket> {
+  updateTicket(Ticket: Ticket): Observable<any> {
     return this.http.put(`${this.api}/${Ticket.id}`, Ticket);
   }
 
-  deleteTicket(id): Observable<Ticket> {
+  deleteTicket(id): Observable<any> {
     return this.http.delete(`${this.api}/${id}`);
   }
 }

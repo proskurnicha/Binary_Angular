@@ -2,6 +2,6 @@ export interface Aircraft {
     id: number;
     aircraftName: string;
     typeAircraftId: number;
-    dateRelease: Date;
+    dateRelease?: Date;
     lifetime: Date;
 }

@@ -13,18 +13,18 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class DetailCrewComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, 
+  constructor(private route: ActivatedRoute,
               private fb: FormBuilder,
-              private CrewService: CrewService) { 
+              private CrewService: CrewService) {
     const id = this.route.snapshot.paramMap.get('id');
-    if(id != 0) {
+    if(id != '0') {
       this.getCrewById();
     }
     else {
       this.createCrewForm();
     }
   }
-  
+
   Crew: Crew;
   CrewForm: FormGroup;
 
@@ -58,14 +58,14 @@ export class DetailCrewComponent implements OnInit {
     );
   }
 
-  
+
   createCrewForm(): void {
     if(this.Crew != null){
       this.CrewForm = this.fb.group({
         pilotId: [ this.Crew.pilotId, []],
         // arrivalTime: [this.Crew.arrivalTime || '', [Validators.required, Validators.minLength(3)]],
       });
-    } 
+    }
     else {
       this.CrewForm = this.fb.group({
         pilotId: [ '', []],
@@ -76,12 +76,12 @@ export class DetailCrewComponent implements OnInit {
   applyChanges(Crew: Crew): void {
     debugger
     const id = this.route.snapshot.paramMap.get('id');
-    if(id != 0) { 
+    if(id != '0') {
       this.updateCrew(Crew)
     }
     else {
       this.createCrew(Crew);
-    }    
+    }
   }
 
   updateCrew(Crew: Crew) {

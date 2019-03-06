@@ -12,23 +12,23 @@ export class CrewService {
 
   constructor(private http: HttpClient) { }
 
-  getCrews(): Observable<Crew> {
+  getCrews(): Observable<any> {
     return this.http.get(`${this.api}`);
   }
 
-  getCrewsById(id): Observable<Crew> {
+  getCrewsById(id): Observable<any> {
     return this.http.get(`${this.api}/${id}`);
   }
 
-  createCrew(Crew: Crew): Observable<Crew> {
+  createCrew(Crew: Crew): Observable<any> {
     return this.http.post(`${this.api}/`, Crew);
   }
 
-  updateCrew(Crew: Crew): Observable<Crew> {
+  updateCrew(Crew: Crew): Observable<any> {
     return this.http.put(`${this.api}/${Crew.id}`, Crew);
   }
 
-  deleteCrew(id): Observable<Crew> {
+  deleteCrew(id): Observable<any> {
     return this.http.delete(`${this.api}/${id}`);
   }
 }

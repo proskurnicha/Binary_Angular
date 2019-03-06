@@ -13,18 +13,18 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class DetailPilotComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, 
+  constructor(private route: ActivatedRoute,
               private fb: FormBuilder,
-              private PilotService: PilotService) { 
+              private PilotService: PilotService) {
     const id = this.route.snapshot.paramMap.get('id');
-    if(id != 0) {
+    if(id != '0') {
       this.getPilotById();
     }
     else {
       this.createPilotForm();
     }
   }
-  
+
   Pilot: Pilot;
   PilotForm: FormGroup;
 
@@ -58,7 +58,7 @@ export class DetailPilotComponent implements OnInit {
     );
   }
 
-  
+
   createPilotForm(): void {
     if(this.Pilot != null){
       this.PilotForm = this.fb.group({
@@ -69,7 +69,7 @@ export class DetailPilotComponent implements OnInit {
         crewId: [this.Pilot.crewId, []]
         // arrivalTime: [this.Pilot.arrivalTime || '', [Validators.required, Validators.minLength(3)]],
       });
-    } 
+    }
     else {
       this.PilotForm = this.fb.group({
         name: [ '', []],
@@ -84,12 +84,12 @@ export class DetailPilotComponent implements OnInit {
   applyChanges(Pilot: Pilot): void {
     debugger
     const id = this.route.snapshot.paramMap.get('id');
-    if(id != 0) { 
+    if(id != '0') {
       this.updatePilot(Pilot)
     }
     else {
       this.createPilot(Pilot);
-    }    
+    }
   }
 
   updatePilot(Pilot: Pilot) {

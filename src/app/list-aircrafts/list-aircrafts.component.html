@@ -1,5 +1,5 @@
     <div>
-        <button mat-button class="createButton" routerLink="./0">Create new aircraft</button>
+        <button mat-raised-button class="createButton" routerLink="./0">Create new aircraft</button>
 
         <table id="entities">
                 <tr>
@@ -8,7 +8,7 @@
                   <th>Lifetime</th>
                   <th></th>
                 </tr>
-                
+
                 <tr *ngFor="let Aircraft of Aircrafts" >
                   <td  routerLink="./{{Aircraft.id}}">{{Aircraft.aircraftName}}</td>
                   <td>{{Aircraft.dateRelease | date: 'longDate'}}</td>
@@ -17,4 +17,4 @@
                 </tr>
         </table>
     </div>
-    
+

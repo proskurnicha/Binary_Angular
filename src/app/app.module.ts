@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClientModule } from  '@angular/common/http';
-import { CommonModule } from '@angular/common';  
+import { CommonModule } from '@angular/common';
 import { Pipe, PipeTransform } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -30,12 +30,15 @@ import {MatButtonModule, MatCheckboxModule} from '@angular/material';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { RouterModule } from '@angular/router';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    ListFlightsComponent, 
-    DetailFlightComponent, 
+    ListFlightsComponent,
+    DetailFlightComponent,
     ListAircraftsComponent,
     DetailAircraftComponent,
     SortFlightsByDeparturePointsPipe,
@@ -57,6 +60,7 @@ import {MatInputModule} from '@angular/material/input';
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    RouterModule,
     ReactiveFormsModule,
     CommonModule,
     SharedModule,
@@ -65,9 +69,10 @@ import {MatInputModule} from '@angular/material/input';
     MatCheckboxModule,
     MatMenuModule,
     MatTableModule,
-    MatInputModule
+    MatInputModule,
+    MatDatepickerModule,
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
